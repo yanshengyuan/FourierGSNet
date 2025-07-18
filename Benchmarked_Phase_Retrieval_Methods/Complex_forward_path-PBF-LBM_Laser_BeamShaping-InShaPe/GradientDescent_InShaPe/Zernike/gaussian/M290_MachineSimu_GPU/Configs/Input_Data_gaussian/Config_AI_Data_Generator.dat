@@ -1,0 +1,46 @@
+[field_initialization]
+wavelength = 1.07e-6
+gridSize = 36e-3
+gridPixelnumber = 1281 
+
+[gaussian_beam]
+beamDiameter=6.94e-3
+
+[cgh_data]
+cghFilename = CGH_20221216_001_InShaPe_TUM_001_r0300px_e0900px.png
+cghSize = 12e-3
+cghPixelnumber = 600
+cghBackgroundValue = 127 
+cghGreyValues = 255
+
+[run_control]
+randomSeed = 37
+runMax = 10000
+
+[zernike_coefficients]
+zernikeMaxOrder = 5
+zernikeAmplitude = 1.5
+zernikeRadius = 6e-3
+nollMin = 4
+
+[field_focussing]
+beamMagnification=351615.1898734188
+focalLength = 123456
+focalReduction = 4.5
+
+[field_aperture]
+apertureRadius = 6e-3
+apertureSmoothWidth = 0.2e-3
+
+[caustic_planes]
+preprefocPlane = -6.0
+prefocPlane = -5.0
+pstprefocPlane = -4.0
+focPlane = 0.0
+prepostfocPlane = 4.0
+postfocPlane = 5.0
+pstpostfocPlane = 6.0
+
+[data_output]
+outputSize = 1.024e-3
+outputPixelnumber = 64
