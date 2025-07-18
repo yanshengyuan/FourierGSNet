@@ -1,0 +1,1 @@
+python3 Fresnel_GradientDescent.py --data ../PhaseGAN_data --gpu 0
