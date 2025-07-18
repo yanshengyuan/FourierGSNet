@@ -1,1 +1,0 @@
-python3 M290_GradientDescent_GPU.py --beamshape RecTophat --gpu 0
