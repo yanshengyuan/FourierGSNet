@@ -1,0 +1,1 @@
+python3 FFT_GradientDescent.py --data ../RAF_CDI_defocus --gpu 0
