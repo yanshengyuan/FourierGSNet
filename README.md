@@ -398,15 +398,18 @@ This folder contains the matplotlib codes that plots all the experiment results 
 There are 4 sub-folders in this folder: Figure-Ablation, Violin_FourierCDI, Violin_InShaPe, Violin_Xray containing the plotting codes for the experiment results on the contrast experiment between FourierGSNet with or without physics knowledge injected, RAF-CDI dataset, InShaPe dataset, and PhaseGAN example dataset, respectively.
 
 For the Figure-Ablation:
+
     python3 Violins_overlap.py
 
 For the Violin_FourierCDI and Violin_Xray, respectively:
+
     python3 Violin_plot.py
 
 For the Violin_InShaPe:
+
     inside the script Violin_plot.py, revise line 14:
     beamshape="Gaussian/", change the beam shape to one of the 6 beam shapes of InShaPe dataset.
     Then run: python3 Violin_plot.py
     You will get the violin plot of the corresponding beam shape.
 
-Author:    Shengyuan Yan, Inter-connected Resource-Aware Intelligent Systems (IRIS), TU Eindhoven, 12:57 AM, Eindhoven, Netherlands, EU West.
+# Author: Shengyuan Yan, Inter-connected Resource-Aware Intelligent Systems (IRIS), TU Eindhoven, 12:57 AM, Eindhoven, Netherlands, EU West.
