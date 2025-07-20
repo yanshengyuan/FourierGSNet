@@ -55,3 +55,70 @@ scikit-image==0.24.0
 seaborn==0.13.2
 
 LightPipes==2.1.4
+
+    (a. Complex_forward_path-PBF-LBM_Laser_BeamShaping-InShaPe
+
+    a1. Data preparation:
+
+    cd InShaPe_dataset, there are 6 sub-folders in it. Operations to reproduce the InShaPe sub-set in each sub-folder are the same, so here we only take Chair shape for example
+
+    cd densebench30k_pre
+
+    Move the Zernike coefficients numpy file of the training set and test set of the original InShaPe dataset released by the OE (Optics Express) paper "Deep learning based phase retrieval with complex beam shapes for beam shape correction" into the current directory.
+
+    Run the data processing command to re-run the original simulation released by the OE paper and produce SLM phase maps and intensity images:
+
+    python3 data_processing_train.py
+
+    python3 data_processing_test.py
+
+
+
+    a2. Trainings:
+
+    FourierGSNet with physics knowledged injected:
+
+    cd FourierGSNet_ComplexInShaPe
+    
+    python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec
+
+    FourierGSNet without physics knowledged injected:
+
+    cd FourierGSNet_ComplexInShaPe
+
+    python3 train_reg.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name reg_rec.pth.tar --val_vis_path reg_rec
+
+    Inferences:
+
+    FourierGSNet with physics knowledged injected:
+
+    cd FourierGSNet_ComplexInShaPe
+
+    python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec --eval
+
+    cd FourierGSNet_ComplexInShaPe
+
+    python3 train_reg.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name reg_rec.pth.tar --val_vis_path reg_rec --eval
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
