@@ -58,6 +58,8 @@ LightPipes==2.1.4
 
     (a. Complex_forward_path-PBF-LBM_Laser_BeamShaping-InShaPe
 
+    
+
     a1. Data preparation:
 
     cd InShaPe_dataset, there are 6 sub-folders in it. Operations to reproduce the InShaPe sub-set in each sub-folder are the same, so here we only take Chair shape for example
@@ -72,7 +74,6 @@ LightPipes==2.1.4
 
     python3 data_processing_test.py
 
-
     
 
     a2. Trainings:
@@ -82,12 +83,15 @@ LightPipes==2.1.4
     cd FourierGSNet_ComplexInShaPe
     
     python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec
+    
 
     FourierGSNet without physics knowledged injected:
 
     cd FourierGSNet_ComplexInShaPe
 
     python3 train_reg.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name reg_rec.pth.tar --val_vis_path reg_rec
+
+    
 
     Inferences:
 
@@ -96,6 +100,9 @@ LightPipes==2.1.4
     cd FourierGSNet_ComplexInShaPe
 
     python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec --eval
+    
+
+    FourierGSNet without physics knowledged injected:
 
     cd FourierGSNet_ComplexInShaPe
 
