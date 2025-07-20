@@ -135,7 +135,7 @@ LightPipes==2.1.4
     python3 runtime_statistics.py
     
 
-    The Trainings not included and did not contribute to our Advanced Photonics journal paper:
+    The Trainings not included and did not contribute to this journal paper:
 
     10. Attention map, regression feature, and physics knowledge feature Feature Study scripts
     cd FourierGSNet_feature_study
@@ -210,7 +210,7 @@ LightPipes==2.1.4
     cd deepcdi_Fresnel
     python3 0_train-cnn/train_cnn_xray.py
     
-    The Trainings not included and did not contribute to our Advanced Photonics journal paper:
+    The Trainings not included and did not contribute to this journal paper:
 
     6. FourierGSNet with the source plane intensity known and given as the source plane intensity contraints
     cd FourierGSNet_Fresnel_SourceKnown
@@ -288,7 +288,7 @@ LightPipes==2.1.4
     cd deepcdi_FFT
     python3 0_train-cnn/train_cnn_defocus_bs2.py
     
-    The Trainings not included and did not contribute to our Advanced Photonics journal paper:
+    The Trainings not included and did not contribute to this journal paper:
 
     6. FourierGSNet with the source plane intensity known and given as the source plane intensity contraints
     cd FourierGSNet_FFT_SourceKnown
