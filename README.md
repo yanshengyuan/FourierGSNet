@@ -1,10 +1,10 @@
 # FourierGSNet
 
-This repository is the code officially published and submitted in SPIE, USA of our Advanced Photonics journal paper publication in 2025.
+<!-- This repository is the code officially published and submitted in SPIE, USA of our Advanced Photonics journal paper publication in 2025. -->
 
 Our paper: Efficient Gerchberg-Saxton algorithm deep unrolling for phase retrieval with complex forward path
 
-Journal: Advanced Photonics of SPIE, USA.
+<!-- Journal: Advanced Photonics of SPIE, USA. -->
 
 DOI:
 
