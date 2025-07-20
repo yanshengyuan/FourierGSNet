@@ -78,21 +78,21 @@ LightPipes==2.1.4
 
     a2. Trainings:
 
-    FourierGSNet with physics knowledged injected:
+    1. FourierGSNet with physics knowledged injected:
 
     cd FourierGSNet_ComplexInShaPe
     
     python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec
     
 
-    FourierGSNet without physics knowledged injected:
+    2. FourierGSNet without physics knowledged injected:
 
     cd FourierGSNet_ComplexInShaPe
 
     python3 train_reg.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name reg_rec.pth.tar --val_vis_path reg_rec
 
 
-    GS direct unrolling:
+    3. GS direct unrolling:
 
     cd ICLR2021_ComplexInShaPe_GPU
 
@@ -103,25 +103,110 @@ LightPipes==2.1.4
     For all other beamshapes:
     
     python3 train_ICLR.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 1 --lr 0.0002 --step_size 2 --seed 22 --pth_name ICLR_rec.pth.tar --val_vis_path ICLR_rec
-
     
 
+    4. SiSPRNet
+
+    cd SiSPRNet_ComplexInShaPe
+
+    python3 train_SiSPRNet.py --data ../InShaPe_dataset/denserec30k_pre --epochs 30 --batch_size 2 --gpu 0 --lr 0.0002 --step_size 2 --seed 123 --pth_name SiSPRNet_rec.pth.tar --val_vis_path SiSPRNet_rec
+    
+
+    5. deep-CDI
+
+    cd deepcdi_ComplexInShaPe
+
+    python3 0_train-cnn/train_cnn_chair.py
+    
+
+    6. Gradient Descent fitting method based on free SLM phase
+
+    cd GradientDescent_InShaPe/SLM_phase
+
+    cd chair
+
+    python3 M290_GradientDescent_GPU.py --beamshape Chair --gpu 0
+    
+
+    7. Gradient Descent fitting method based on standard SLM phase mask + Zernike polynomials * Zernike Coefficients
+
+    cd GradientDescent_InShaPe/Zernike
+
+    cd chair
+
+    python3 M290_GradientDescent_GPU.py --beamshape Chair --gpu 0
+
+    Measure the fitting time averaged across six beam shapes, also referred to as inference time in our paper:
+
+    cd ..
+
+    python3 runtime_statistics.py
+    
+
+    8. Newton-Raphson fitting method based on free SLM phase
+
+    cd NewtonRaphson_InShaPe/Phase_Fresnel
+
+    cd chair
+
+    python3 Fresnel_NewtonRaphson.py --beamshape Chair --gpu 0
+    
+
+    9. Newton-Raphson fitting method based on standard SLM phase mask + Zernike polynomials * Zernike Coefficients
+
+    cd NewtonRaphson_InShaPe/Zernike
+
+    cd chair
+
+    python3 M290_NewtonRaphson_GPU.py --beamshape Chair --gpu 0
+
+    Measure the fitting time averaged across six beam shapes, also referred to as inference time in our paper:
+
+    cd ..
+
+    python3 runtime_statistics.py
+
+
+
+    The Trainings not included and did not contribute to our Advanced Photonics journal paper:
+
+    10. Attention map, regression feature, and physics knowledge feature Feature Study scripts
+
+    cd FourierGSNet_feature_study
+
+    python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec --eval --log_features True
+
+
+    11. CPU version non-differentiable GS direct unrolling implemented based on LightPipes
+
+    cd ICLR2021_ComplexInShaPe_CPU
+
+    python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec
+    
+    
+    
     Inferences:
 
-    FourierGSNet with physics knowledged injected:
-
-    cd FourierGSNet_ComplexInShaPe
+    1. FourierGSNet with physics knowledged injected:
 
     python3 train_GSNet.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name GSNet_rec.pth.tar --val_vis_path GSNet_rec --eval
     
 
-    FourierGSNet without physics knowledged injected:
-
-    cd FourierGSNet_ComplexInShaPe
+    2. FourierGSNet without physics knowledged injected:
 
     python3 train_reg.py --data ../InShaPe_dataset/denserec30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name reg_rec.pth.tar --val_vis_path reg_rec --eval
 
 
-    GS direct unrolling:
+    3. GS direct unrolling:
 
     python3 train_ICLR.py --data ../InShaPe_dataset/densegaussian30k_pre --batch_size 2 --gpu 0 --seed 22 --pth_name ICLR_gaussian.pth.tar --val_vis_path ICLR_gaussian --eval
+    
+
+    4. SiSPRNet
+
+    python3 train_SiSPRNet.py --data ../InShaPe_dataset/densegaussian30k_pre --batch_size 2 --gpu 0 --seed 123 --pth_name SiSPRNet_gaussian.pth.tar --val_vis_path SiSPRNet_gaussian --eval
+    
+
+    5. deep-CDI
+
+    python3 0_train-cnn/train_cnn_chair.py
