@@ -32,8 +32,26 @@ The first 3 folders contains the experiment codes of benchmarked methods on the 
 
 Library and version requirements:
 
-numpy==1.26.3
-
 python==3.11.9
 
-matplotlib==3.5.2
+numpy==1.26.3
+
+h5py==3.12.1
+
+hdf5==1.14.3
+
+matplotlib==3.8.0
+
+opencv-python==4.9.0
+
+pytorch==2.1.1
+
+tensorflow==2.3.0
+
+scipy==1.11.4
+
+scikit-image==0.24.0
+
+seaborn==0.13.2
+
+LightPipes==2.1.4
