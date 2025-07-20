@@ -72,7 +72,8 @@ LightPipes==2.1.4
 
     python3 data_processing_test.py
 
-\n
+
+    
 
     a2. Trainings:
 
