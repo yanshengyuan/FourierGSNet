@@ -208,5 +208,4 @@ LightPipes==2.1.4
     
 
     5. deep-CDI
-
     python3 0_train-cnn/train_cnn_chair.py
