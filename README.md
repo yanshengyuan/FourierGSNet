@@ -16,6 +16,8 @@ This work was supported by the EU InShaPe project (https://inshape-horizoneurope
 
 The root directory of this repository contains three folders: "Benchmarked_Phase_Retrieval_Methods", "Evaluations", and "Plottings" containing the codes for benchmarked methods implementations, experiment results evaluation codes, and experiment results analysis, respectively. The following instructions guide the users how to use the codes in different functionalities in different folders.
 
+
+
 1), Benchmarked_Phase_Retrieval_Methods (Phase Retrieval methods codes):
 
 In this folder, there are 5 sub-folders:
@@ -320,3 +322,91 @@ LightPipes==2.1.4
 
     5. deep-CDI
     python3 0_train-cnn/train_cnn_defocus_bs2.py
+
+
+
+
+
+2), Evaluations (Implementation of accuracy metrics MAE, SSIM, FRCM, ReconsErr and evaluation codes):
+
+In this folder, there are 14 sub-folders. Each sub-folder contains the same codes that implements metrics MAE, SSIM, FRCM, ReconsErr and evaluation procedure. Therefore, we first list out which model's result is contained in which folder. Then we introduce inside each sub-folder which scripts should be run to compute the metrics for the results.
+
+Library and version requirements:
+
+python==3.7.12
+
+numpy==1.21.6
+
+pandas==1.3.5
+
+matplotlib==3.5.3
+
+pytorch==1.2.0
+
+
+
+
+(a. List of sub-folder -- method pairs
+
+    GSNet_CDI_SourceUnknown -- FourierGSNet on RAF-CDI dataset
+    
+    GSNet_CDI_WOT -- FourierGSNet without physics knowledge injected on RAF-CDI dataset
+    
+    GSNet_Xray_SourceUnknown -- FourierGSNet on PhaseGAN example dataset
+    
+    GSNet_Xray_WOT -- FourierGSNet without physics knowledge injected on PhaseGAN example dataset
+    
+    GSNet_inshape_pre/GSNet_chair -- FourierGSNet on InShaPe dataset
+    
+    GSNet_inshape_pre/GSNet_WOT_chair -- FourierGSNet without physics knowledge injected on InShaPe dataset
+    
+    ICLR2021_CDI_SourceUnknown -- GS direct unrolling on RAF-CDI dataset
+    
+    ICLR2021_Xray_SourceUnknown -- GS direct unrolling on PhaseGAN example dataset
+    
+    ICLR2021_inshape_pre -- GS direct unrolling on InShaPe dataset
+    
+    SiSPRNet_CDI -- SiSPRNet on RAF-CDI dataset
+    
+    SiSPRNet_Xray -- SiSPRNet on PhaseGAN example dataset
+    
+    SiSPRNet_inshape_pre -- SiSPRNet on InShaPe dataset
+    
+    deep-CDI_CDI -- deep-CDI on RAF-CDI dataset
+    
+    deep-CDI_Xray -- deep-CDI on PhaseGAN example dataset
+    
+    deep-CDI_inshape_pre -- deep-CDI on InShaPe dataset
+
+(b. The functionalities in each sub-folder
+
+    1. Run the MAE, SSIM, FRCM accuracy metric evaluation script:
+    python3 FRCM.py
+
+    2. Run the ReconsErr accuracy metric evaluation script:
+    cd recons_err/.
+    python3 recons_err.py
+
+
+
+
+
+3), Plottings (Violin KDEs plots):
+
+This folder contains the matplotlib codes that plots all the experiment results statistical analysis codes
+
+There are 4 sub-folders in this folder: Figure-Ablation, Violin_FourierCDI, Violin_InShaPe, Violin_Xray containing the plotting codes for the experiment results on the contrast experiment between FourierGSNet with or without physics knowledge injected, RAF-CDI dataset, InShaPe dataset, and PhaseGAN example dataset, respectively.
+
+For the Figure-Ablation:
+    python3 Violins_overlap.py
+
+For the Violin_FourierCDI and Violin_Xray, respectively:
+    python3 Violin_plot.py
+
+For the Violin_InShaPe:
+    inside the script Violin_plot.py, revise line 14:
+    beamshape="Gaussian/", change the beam shape to one of the 6 beam shapes of InShaPe dataset.
+    Then run: python3 Violin_plot.py
+    You will get the violin plot of the corresponding beam shape.
+
+Author:    Shengyuan Yan, Inter-connected Resource-Aware Intelligent Systems (IRIS), TU Eindhoven, 12:57 AM, Eindhoven, Netherlands, EU West.
