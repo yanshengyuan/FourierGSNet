@@ -326,6 +326,41 @@ LightPipes==2.1.4
 
 
 
+(d. M290_Laser_BeamShaping_BatchGPU_simulation
+
+This folder contains the enhanced PBF-LB/M EOS M290 laser beam shaping system wave optics simulation with three new features enabled: Differentiable, Invertible, and Batched
+
+To try out the simulation on the original InShaPe dataset, you can run the following command to completely reproduce a subset of a specific beam shape of the original InShaPe dataset without SLM phase map but only Zernike Coefficients numpy files as GTs:
+
+    python3 Batch_simulation.py --gpu 0 --batch_size 128 --beamshape RecTophat --caustic_plane prefoc
+
+The simulation speed is 100~200 times faster than the original simulation
+
+| **Batch size** | **Runtime for simulating 10k samples** | **Hotpot CUDA memory occupation** |
+|----------------|-----------------------------------------|------------------------------------|
+| 1              | 243 seconds                            | 586 MB                             |
+| 5              | 132 seconds                            | 864 MB                             |
+| 10             | 118 seconds                            | 1228 MB                            |
+| 100            | 113 seconds                            | 7614 MB                            |
+| 200            | 113 seconds                            | 14712 MB                           |
+| 250            | 112 seconds                            | 18254 MB                           |
+
+
+
+
+(e. GS_Algorithms
+
+This folder contains the Gerchberg-Saxton algorithms with FFT, Auglar Spectrum Method (ASM) for Fresnel diffraction, and FFT as forward path involved implemented with LightPipes as a reference. These methods and results were not included in our paper
+
+    python3 GS_FFT_folder_unsetup.py
+    python3 GS_Fresnel_folder_unsetup.py
+
+    cd GS_Simu
+    M290_GS_algorithm.py
+
+
+
+
 
 2), Evaluations (Implementation of accuracy metrics MAE, SSIM, FRCM, ReconsErr and evaluation codes):
 
