@@ -336,7 +336,7 @@ To try out the simulation on the original InShaPe dataset, you can run the follo
 
 The simulation speed is 100~200 times faster than the original simulation
 
-| **Batch size** | **Runtime for simulating 10k samples** | **Hotpot CUDA memory occupation** |
+| **Batch size** | **RTX4090 Runtime for simulating 10k samples** | **RTX4090 CUDA memory occupation** |
 |----------------|-----------------------------------------|------------------------------------|
 | 1              | 243 seconds                            | 586 MB                             |
 | 5              | 132 seconds                            | 864 MB                             |
